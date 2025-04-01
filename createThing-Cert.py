@@ -7,10 +7,10 @@ import random
 import string
 
 ################################################### Parameters for Thing
-thingArn = ''
-thingId = ''
+thingArn = 'arn:aws:iot:us-east-1:058264177579:thinggroup/ThingGroup1'
+thingId = 'ThingGroup1'
 thingName = ''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(15)])
-defaultPolicyName = 'GGTest_Group_Core-policy'
+defaultPolicyName = 'policy1'
 ###################################################
 
 def createThing():
