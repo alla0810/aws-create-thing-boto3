@@ -14,16 +14,16 @@ defaultPolicyName = 'policy1'
 ###################################################
 
 def createThing():
-  global thingClient
-  thingResponse = thingClient.create_thing(
-      thingName = thingName
-  )
-  data = json.loads(json.dumps(thingResponse, sort_keys=False, indent=4))
-  for element in data: 
-    if element == 'thingArn':
-        thingArn = data['thingArn']
-    elif element == 'thingId':
-        thingId = data['thingId']
+	global thingClient
+	thingResponse = thingClient.create_thing(
+	thingName = thingName
+  	)
+	data = json.loads(json.dumps(thingResponse, sort_keys=False, indent=4))
+	for element in data: 
+		if element == 'thingArn':
+			thingArn = data['thingArn']
+		elif element == 'thingId':
+			thingId = data['thingId']
 	createCertificate()
 
 def createCertificate():
