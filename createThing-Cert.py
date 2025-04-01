@@ -8,6 +8,7 @@ import string
 
 ################################################### Parameters for Thing
 thingArn = 'arn:aws:iot:us-east-1:058264177579:thinggroup/ThingGroup1'
+thingGroupName = 'ThingGroup1'
 thingId = 'ThingGroup1'
 thingName = ''.join([random.choice(string.ascii_letters + string.digits) for n in range(15)])
 defaultPolicyName = 'policy1'
@@ -24,6 +25,15 @@ def createThing():
 			thingArn = data['thingArn']
 		elif element == 'thingId':
 			thingId = data['thingId']
+
+	# Add created thing to 'ThingGroup1'
+	thingClient.add_thing_to_thing_group(
+		thingGroupName=thingGroupName,
+		thingName=thingName
+	)
+
+	print(f"Added {thingName} to Thing Group: {thingGroupName}")
+
 	createCertificate()
 
 def createCertificate():
